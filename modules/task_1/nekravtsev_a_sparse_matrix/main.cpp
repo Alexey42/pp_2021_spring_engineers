@@ -63,8 +63,7 @@ TEST(Seq, mult_zero_matr) {
     9, 0, 0
   });
   CCS C = MultCCS(TranspSpareMatrix(A), B);
-
-  ASSERT_EQ(0, C.value.size());
+  ASSERT_EQ(true, C.value.empty());
 }
 
 TEST(Seq, mult_random_matr_3x3) {
