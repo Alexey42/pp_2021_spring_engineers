@@ -141,8 +141,6 @@ CCS TranspSpareMatrix(CCS A) {
 
 CCS MultCCS(CCS A, CCS B) {
   CCS res;
-  if (A.size != B.size)
-    return res;
   res.size = A.size;
 
   res.colInd.push_back(0);
