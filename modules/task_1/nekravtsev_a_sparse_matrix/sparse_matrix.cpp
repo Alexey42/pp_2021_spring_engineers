@@ -98,18 +98,18 @@ CCS TranspSpareMatrix(CCS A) {
   res.rows.resize(A.rows.size());
   res.colInd = std::vector<double>(A.size + 1, 0.0);
 
-  for (size_t i = 0; i < A.value.size(); i++) {
+  for (int i = 0; i < A.value.size(); i++) {
     res.colInd[A.rows[i] + 1]++;
   }
 
   double sum = 0;
-  for (size_t i = 1; i <= A.size; i++) {
+  for (int i = 1; i <= A.size; i++) {
     int tmp = res.colInd[i];
     res.colInd[i] = sum;
     sum = sum + tmp;
   }
 
-  for (size_t i = 0; i < A.size; i++) {
+  for (int i = 0; i < A.size; i++) {
     int x = A.colInd[i];
     int y = A.colInd[i + 1];
     int col = i;
@@ -144,12 +144,12 @@ CCS MultCCS(CCS A, CCS B) {
   res.size = A.size;
 
   res.colInd.push_back(0);
-  for (size_t j = 0; j < A.size; j++) {
+  for (int j = 0; j < A.size; j++) {
     int NZ = 0;
-    for (size_t i = 0; i < B.size; i++) {
+    for (int i = 0; i < B.size; i++) {
       double sum = 0;
-      for (size_t n = A.colInd[i]; n < A.colInd[i + 1]; n++) {
-        for (size_t m = B.colInd[j]; m < B.colInd[j + 1]; m++) {
+      for (int n = A.colInd[i]; n < A.colInd[i + 1]; n++) {
+        for (int m = B.colInd[j]; m < B.colInd[j + 1]; m++) {
           if (A.rows[n] == B.rows[m]) {
             sum += A.value[n] * B.value[m];
             break;
