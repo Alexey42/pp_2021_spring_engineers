@@ -111,7 +111,7 @@ TEST(Seq, mult_random_matr_7x7) {
 }
 
 TEST(Par, par_mult_zero_matr) {
-  /*CCS A = createCCS(3, std::vector<double>(9, 0));
+  CCS A = createCCS(3, std::vector<double>(9, 0));
   CCS B = createCCS(3, std::vector<double> {
     1, 0, 3,
     0, 0, 5,
@@ -119,7 +119,7 @@ TEST(Par, par_mult_zero_matr) {
   });
   CCS C = MultCCSParallel(TranspSpareMatrix(A), B, 4);
 
-  ASSERT_EQ(true, C.value.empty());*/
+  ASSERT_EQ(true, C.value.empty());
 }
 
 TEST(Par, par_mult_random_matr_1x1) {
